@@ -49,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -172,7 +172,7 @@
       <workItem from="1641887982002" duration="2548000" />
       <workItem from="1642141830064" duration="7079000" />
       <workItem from="1642831862027" duration="3638000" />
-      <workItem from="1642919525053" duration="15162000" />
+      <workItem from="1642919525053" duration="15464000" />
     </task>
     <task id="LOCAL-00001" summary="Create consumer and producer">
       <created>1642213044417</created>
