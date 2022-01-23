@@ -1,5 +1,4 @@
-package vn.edu.hcmut.invoice;
-
+package config;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
