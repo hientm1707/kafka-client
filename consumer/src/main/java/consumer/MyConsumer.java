@@ -1,4 +1,4 @@
-package main.java.consumer;
+package consumer;
 
 
 import config.Invoice;
