@@ -1,7 +1,8 @@
-package vn.edu.hcmut.producer;
+package producer;
 
 import config.Invoice;
 import config.MyJsonSerializer;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -11,8 +12,8 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+@Slf4j
 public class MyProducer {
-
 
     public static void main(String[] args) {
 
@@ -27,7 +28,7 @@ public class MyProducer {
             IntStream.range(0, 1000)
                     .parallel()
                     .forEach(i -> {
-                        System.out.println(i);
+                        log.info(String.valueOf(i));
                         final var invoice = Invoice.builder()
                                 .invoiceNumber(String.format("%05d", i))
                                 .storeId(i % 5 + "")
@@ -38,7 +39,7 @@ public class MyProducer {
 
                     });
         } catch (Exception e) {
-            System.out.println("Caught exception");
+            log.error("Caught exception");
         }
     }
 
