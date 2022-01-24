@@ -41,10 +41,11 @@ public class MyConsumer {
         producerProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
         producerProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         producerProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, MyJsonSerializer.class);
-
+        var producer = new KafkaProducer<>(producerProps);
         while (true) {
             final var records = consumer.poll(Duration.ofMillis(100));
-            try (var producer = new KafkaProducer<>(producerProps)) {
+
+            try {
                 records.forEach(r -> {
                     if (!r.value().isValid()) {
                         producer.send(new ProducerRecord<>("invalid-invoice-topic", r.value().getStoreId(), r.value()));
@@ -56,11 +57,9 @@ public class MyConsumer {
                 });
             } catch (Exception e) {
                 log.error("Caught an exception while filtering messages: {}", e.getMessage());
-                break;
-            } finally {
                 consumer.close();
+                break;
             }
-            return;
         }
     }
 
